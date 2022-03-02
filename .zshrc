@@ -82,7 +82,8 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+export PATH=$PATH:~/.local/bin
+export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-17.0.2.0.8-1.fc35.x86_64
 export ANDROID_HOME=~/.android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
@@ -95,7 +96,7 @@ export PATH=$PATH:/home/natalia/.local/bin
 alias refresh="exec /bin/zsh"
 alias clr="clear"
 alias dnfi="sudo dnf install -y"
-alias anfu="sudo dnf update"
+alias dnfu="sudo dnf update"
 alias ytdl="youtube-dl -o '~/Videos/%(title)s-%(id)s.%(ext)s'"
 alias dc="docker-compose"
 alias amend="git commit --amend --no-edit"
@@ -108,6 +109,7 @@ alias py="python"
 alias copydir="copypath"
 alias mkvenv="python -m venv ./venv"
 alias venv="source ./venv/bin/activate"
+alias open="nautilus"
 which cleancss > /dev/null 2>&1 && alias minifycss="cleancss -o style.min.css style.css --with-rebase"
 which dotenv-cli > /dev/null 2>&1 && alias dotenv="dotenv-cli"
 which gh > /dev/null 2>&1 && alias clone="gh repo clone"
@@ -116,6 +118,11 @@ which exa > /dev/null 2>&1 && alias la="exa -lha --time-style=long-iso --group-d
 which exa > /dev/null 2>&1 && alias tree="exa --tree"
 which poetry > /dev/null 2>&1 && alias poetryrm="rm -rf `poetry env info -p`"
 
+# docker
+alias dprune="docker system prune --all --volumes"
+alias postgres="docker-compose -f postgres.yaml"
+alias mongo="docker-compose -f mongo.yaml"
+alias redis="docker-compose -f redis.yaml"
 
 function yarn-audit-fix() {
   npm i --package-lock-only
