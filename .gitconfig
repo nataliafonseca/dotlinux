@@ -1,0 +1,20 @@
+[user]
+	email = nataliabf@outlook.com
+	name = Natália Fonseca
+[init]
+	defaultBranch = main
+[core]
+	editor = subl --wait
+	excludesFile = /home/natalia/.gitignore_global
+[pull]
+	rebase = true
+[push]
+	followTags = true
+[alias]
+	c = !git add --all && git commit -m
+	s = !git status -s
+	l = !git log --pretty=format:'%C(yellow)%h%C(red)%d %C(white)%s - %C(cyan)%cn%C(white), %C(green)%cr'
+	f = !git fetch --all --prune
+	r = !git reset --soft
+	amend = !git add --all && git commit --amend --no-edit
+	count = !git shortlog -s --grep

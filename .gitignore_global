@@ -1,0 +1,8 @@
+.directory
+.vscode
+**.code-workspace
+node_modules
+.idea
+dist
+out
+
