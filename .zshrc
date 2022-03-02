@@ -82,16 +82,17 @@ source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
-export PATH=$PATH:~/.local/bin
+export PATH=$PATH:/home/natalia/.local/bin
+
 export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-17.0.2.0.8-1.fc35.x86_64
+
 export ANDROID_HOME=~/.android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
-export PATH=$PATH:~/Applications/android-studio/bin
+
 export PATH=$PATH:$HOME/.poetry/bin
-export PATH=$PATH:/home/natalia/.local/bin
 
 alias refresh="exec /bin/zsh"
 alias clr="clear"
@@ -124,6 +125,7 @@ alias postgres="docker-compose -f postgres.yaml"
 alias mongo="docker-compose -f mongo.yaml"
 alias redis="docker-compose -f redis.yaml"
 
+
 function yarn-audit-fix() {
   npm i --package-lock-only
   npm audit fix
@@ -150,6 +152,7 @@ SPACESHIP_USER_SHOW=always
 SPACESHIP_PROMPT_ADD_NEWLINE=true
 SPACESHIP_CHAR_SYMBOL="❯"
 SPACESHIP_CHAR_SUFFIX=" "
+
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
