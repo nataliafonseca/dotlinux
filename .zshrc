@@ -84,7 +84,7 @@ source $ZSH/oh-my-zsh.sh
 
 export PATH=$PATH:/home/natalia/.local/bin
 
-export JAVA_HOME=/usr/lib/jvm/java-17-openjdk-17.0.2.0.8-1.fc35.x86_64
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.14.1.1-4.fc35.x86_64
 
 export ANDROID_HOME=~/.android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
@@ -100,7 +100,6 @@ alias dnfi="sudo dnf install -y"
 alias dnfu="sudo dnf update"
 alias ytdl="youtube-dl -o '~/Videos/%(title)s-%(id)s.%(ext)s'"
 alias dc="docker-compose"
-alias amend="git commit --amend --no-edit"
 alias homelab="ssh natalia@192.168.0.10"
 alias cloudserver="ssh natalia@static.151.42.161.5.clients.your-server.de"
 alias gdot="git --git-dir=.dot"
