@@ -68,7 +68,7 @@ sudo ln -s /usr/local/bin/docker-compose /usr/bin/docker-compose
 sudo groupadd docker
 sudo usermod -aG docker $USER
 
-# Code
+# code
 sudo rpm --import https://packages.microsoft.com/keys/microsoft.asc
 sudo sh -c 'echo -e "[code]\nname=Visual Stu  dio Code\nbaseurl=https://packages.microsoft.com/yumrepos/vscode\nenabled=1\ngpgcheck=1\ngpgkey=https://packages.microsoft.com/keys/microsoft.asc" > /etc/yum.repos.d/vscode.repo'
 dnf check-update
@@ -88,6 +88,10 @@ sudo dnf install -y bat
 
 # exa
 sudo dnf install -y exa
+
+# chrome
+sudo dnf config-manager --set-enabled google-chrome
+sudo dnf install -y google-chrome-stable
 
 # flatpacks
 flatpak install flathub -y org.telegram.desktop

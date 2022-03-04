@@ -18,3 +18,5 @@
 	r = !git reset --soft
 	amend = !git add --all && git commit --amend --no-edit
 	count = !git shortlog -s --grep
+[rebase]
+	autoStash = true
