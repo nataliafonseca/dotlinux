@@ -2,16 +2,16 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:/home/natalia/.local/bin
 
-## nvm
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
+## asdf
+source /opt/asdf-vm/asdf.sh
 
 ## poetry
 export PATH=$PATH:$HOME/.poetry/bin
 
+# java
+. ~/.asdf/plugins/java/set-java-home.zsh
+
 ## react native
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.14.1.1-4.fc35.x86_64
 export ANDROID_HOME=~/.android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
@@ -46,7 +46,7 @@ source $ZSH/oh-my-zsh.sh
 alias refresh="exec /bin/zsh"
 alias clr="clear"
 alias copydir="copypath"
-alias open="nautilus"
+alias open="nemo"
 
 ## dotfiles git management
 alias gdot="git --git-dir=.dot"
@@ -57,6 +57,7 @@ which dnf >/dev/null 2>&1 && alias dnfi="sudo dnf install -y"
 which dnf >/dev/null 2>&1 && alias dnfu="sudo dnf update"
 which apt >/dev/null 2>&1 && alias apti="sudo apt install -yf"
 which apt >/dev/null 2>&1 && alias aptu="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"
+which yay >/dev/null 2>&1 && alias yayi="yay -Syu --noconfirm"
 
 ## general
 alias py="python"
@@ -94,3 +95,5 @@ function yarn-audit-fix() {
   yarn import
   rm package-lock.json
 }
+
+export PATH="$HOME/.poetry/bin:$PATH"
