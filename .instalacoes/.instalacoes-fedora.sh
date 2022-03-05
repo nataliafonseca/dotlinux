@@ -1,3 +1,13 @@
+#! /bin/sh
+
+sudo -v
+# Keep-alive: update existing sudo time stamp if set, otherwise do nothing.
+while true; do
+    sudo -n true
+    sleep 60
+    kill -0 "$$" || exit
+done 2>/dev/null &
+
 # flathub
 sudo flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
 

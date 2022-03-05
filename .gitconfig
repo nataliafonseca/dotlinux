@@ -8,6 +8,8 @@
 	excludesFile = /home/natalia/.gitignore_global
 [pull]
 	rebase = true
+[rebase]
+	autoStash = true
 [push]
 	followTags = true
 [alias]
@@ -18,5 +20,4 @@
 	r = !git reset --soft
 	amend = !git add --all && git commit --amend --no-edit
 	count = !git shortlog -s --grep
-[rebase]
-	autoStash = true
+

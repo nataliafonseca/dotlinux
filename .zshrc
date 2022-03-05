@@ -4,20 +4,19 @@ export PATH=$PATH:/home/natalia/.local/bin
 
 ## nvm
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"                   # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion" # This loads nvm bash_completion
 
 ## poetry
 export PATH=$PATH:$HOME/.poetry/bin
 
 ## react native
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.14.1.1-4.fc35.x86_64
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export ANDROID_HOME=~/.android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
 export PATH=$PATH:$ANDROID_HOME/tools/bin
 export PATH=$PATH:$ANDROID_HOME/platform-tools
-
 
 # oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh"
@@ -28,34 +27,33 @@ zstyle ':omz:update' mode auto
 zstyle ':omz:update' frequency 180
 
 plugins=(git
-         copypath
-         docker
-         docker-compose
-         z
-         zsh-autosuggestions
-         zsh-syntax-highlighting)
+  copypath
+  docker
+  docker-compose
+  z
+  zsh-autosuggestions
+  zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
 ## spaceship theme configuration
 SPACESHIP_PROMPT_ORDER=(
-  user          # Username section
-  dir           # Current directory section
-  host          # Hostname section
-  git           # Git section (git_branch + git_status)
-  hg            # Mercurial section (hg_branch  + hg_status)
-  exec_time     # Execution time
-  line_sep      # Line break
-  vi_mode       # Vi-mode indicator
-  jobs          # Background jobs indicator
-  exit_code     # Exit code section
-  char          # Prompt character
+  user      # Username section
+  dir       # Current directory section
+  host      # Hostname section
+  git       # Git section (git_branch + git_status)
+  hg        # Mercurial section (hg_branch  + hg_status)
+  exec_time # Execution time
+  line_sep  # Line break
+  vi_mode   # Vi-mode indicator
+  jobs      # Background jobs indicator
+  exit_code # Exit code section
+  char      # Prompt character
 )
 SPACESHIP_USER_SHOW=always
 SPACESHIP_PROMPT_ADD_NEWLINE=true
 SPACESHIP_CHAR_SYMBOL="❯"
 SPACESHIP_CHAR_SUFFIX=" "
-
 
 # aliases and function
 ## shell functions
@@ -66,11 +64,13 @@ alias open="nautilus"
 
 ## dotfiles git management
 alias gdot="git --git-dir=.dot"
-alias updots="gdot add -u; gdot commit -m 'update dotfiles'; gdot push"
+alias updots="gdot pull; gdot add -u; gdot commit -m 'update dotfiles'; gdot push"
 
-## dnf
-alias dnfi="sudo dnf install -y"
-alias dnfu="sudo dnf update"
+## dnf/apt
+which dnf >/dev/null 2>&1 && alias dnfi="sudo dnf install -y"
+which dnf >/dev/null 2>&1 && alias dnfu="sudo dnf update"
+which apt >/dev/null 2>&1 && alias apti="sudo apt install -yf"
+which apt >/dev/null 2>&1 && alias aptu="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"
 
 ## general
 alias py="python"
@@ -82,13 +82,13 @@ alias create-next="yarn create next-app -e https://github.com/nataliafonseca/boi
 alias mirage-start="degit nataliafonseca/miragejs-starter-kit miragejs"
 alias mkvenv="python -m venv ./venv"
 alias venv="source ./venv/bin/activate"
-alias poetryrm="rm -rf `poetry env info -p`"
+alias poetryrm="rm -rf $(poetry env info -p)"
 alias ytdl="youtube-dl -o '~/Videos/%(title)s-%(id)s.%(ext)s'"
 
 ## exa
-which exa > /dev/null 2>&1 && alias ls="exa -lh --time-style=long-iso --group-directories-first --sort=name --sort=ext"
-which exa > /dev/null 2>&1 && alias la="exa -lha --time-style=long-iso --group-directories-first --sort=name --sort=ext"
-which exa > /dev/null 2>&1 && alias tree="exa --tree"
+which exa >/dev/null 2>&1 && alias ls="exa -lh --time-style=long-iso --group-directories-first --sort=name --sort=ext"
+which exa >/dev/null 2>&1 && alias la="exa -lha --time-style=long-iso --group-directories-first --sort=name --sort=ext"
+which exa >/dev/null 2>&1 && alias tree="exa --tree"
 
 ## ssh connection to servers
 alias homelab="ssh natalia@192.168.0.10"
