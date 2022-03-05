@@ -101,3 +101,25 @@ yay -R --noconfirm firefox-gnome-theme-maia
 
 # insync
 yay -Syu --noconfirm insync
+
+# whatsapp
+yay -Syu --noconfirm whatsapp-nativefier
+
+# discord
+yay -Syu --noconfirm discord
+
+# insomnia
+yay -Syu --noconfirm insomnia
+
+# mailspring
+yay -Syu --noconfirm mailspring
+
+# bat
+yay -Syu --noconfirm bat
+
+# exa
+yay -Syu --noconfirm exa
+
+# intellij
+yay -Syu --noconfirm intellij-idea-ultimate-edition
+yay -Syu --noconfirm intellij-idea-ultimate-edition-jre

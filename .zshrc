@@ -52,7 +52,7 @@ alias open="nemo"
 alias gdot="git --git-dir=.dot"
 alias updots="gdot pull; gdot add -u; gdot commit -m 'update dotfiles'; gdot push"
 
-## dnf/apt
+## dnf/apt/yay
 which dnf >/dev/null 2>&1 && alias dnfi="sudo dnf install -y"
 which dnf >/dev/null 2>&1 && alias dnfu="sudo dnf update"
 which apt >/dev/null 2>&1 && alias apti="sudo apt install -yf"
@@ -95,5 +95,3 @@ function yarn-audit-fix() {
   yarn import
   rm package-lock.json
 }
-
-export PATH="$HOME/.poetry/bin:$PATH"
