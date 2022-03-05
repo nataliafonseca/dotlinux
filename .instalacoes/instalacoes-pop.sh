@@ -15,7 +15,7 @@ sudo apt upgrade -y
 sudo apt install -y git
 
 # varied programs
-sudo apt install -y curl unrar xclip python3-pip imagemagick apt-transport-https p7zip-full p7zip-rar default-jdk qbittorrent maven pdftk pdfchain dconf-editor telegram-desktop kolourpaint flameshot krita img2pdf simplescreenrecorder vlc build-essential pkg-config libvlccore-dev libvlc-dev gnome-tweaks chrome-gnome-shell timeshift peek libev-dev libx11-dev libxi-dev gpick inkscape gimp
+sudo apt install -y curl unrar xclip python3-pip imagemagick apt-transport-https p7zip-full p7zip-rar default-jdk qbittorrent maven pdftk pdfchain dconf-editor telegram-desktop kolourpaint flameshot krita img2pdf simplescreenrecorder vlc build-essential pkg-config libvlccore-dev libvlc-dev gnome-tweaks chrome-gnome-shell timeshift peek libev-dev libx11-dev libxi-dev gpick inkscape gimp fzf
 
 # Notion
 echo "deb [trusted=yes] https://apt.fury.io/notion-repackaged/ /" | sudo tee /etc/apt/sources.list.d/notion-repackaged.list

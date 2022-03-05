@@ -47,6 +47,9 @@ sudo dnf install -y kolourpaint
 # flameshot
 sudo dnf install -y flameshot
 
+# fzf
+sudo dnf install -y fzf
+
 # krita
 sudo dnf install -y krita
 

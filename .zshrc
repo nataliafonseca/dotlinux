@@ -11,7 +11,7 @@ export NVM_DIR="$HOME/.nvm"
 export PATH=$PATH:$HOME/.poetry/bin
 
 ## react native
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-11.0.14.1.1-4.fc35.x86_64
 export ANDROID_HOME=~/.android/Sdk
 export PATH=$PATH:$ANDROID_HOME/emulator
 export PATH=$PATH:$ANDROID_HOME/tools
@@ -21,39 +21,25 @@ export PATH=$PATH:$ANDROID_HOME/platform-tools
 # oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh"
 
-ZSH_THEME="spaceship"
+ZSH_THEME="powerlevel10k/powerlevel10k"
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 zstyle ':omz:update' mode auto
 zstyle ':omz:update' frequency 180
 
 plugins=(git
-  copypath
-  docker
-  docker-compose
-  z
-  zsh-autosuggestions
-  zsh-syntax-highlighting)
+         gitfast
+         sudo
+         copypath
+         dotenv
+         zsh-interactive-cd
+         zsh-z
+         zsh-autosuggestions
+         zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
-## spaceship theme configuration
-SPACESHIP_PROMPT_ORDER=(
-  user      # Username section
-  dir       # Current directory section
-  host      # Hostname section
-  git       # Git section (git_branch + git_status)
-  hg        # Mercurial section (hg_branch  + hg_status)
-  exec_time # Execution time
-  line_sep  # Line break
-  vi_mode   # Vi-mode indicator
-  jobs      # Background jobs indicator
-  exit_code # Exit code section
-  char      # Prompt character
-)
-SPACESHIP_USER_SHOW=always
-SPACESHIP_PROMPT_ADD_NEWLINE=true
-SPACESHIP_CHAR_SYMBOL="❯"
-SPACESHIP_CHAR_SUFFIX=" "
 
 # aliases and function
 ## shell functions
@@ -86,9 +72,9 @@ alias poetryrm="rm -rf $(poetry env info -p)"
 alias ytdl="youtube-dl -o '~/Videos/%(title)s-%(id)s.%(ext)s'"
 
 ## exa
-which exa >/dev/null 2>&1 && alias ls="exa -lh --time-style=long-iso --group-directories-first --sort=name --sort=ext"
-which exa >/dev/null 2>&1 && alias la="exa -lha --time-style=long-iso --group-directories-first --sort=name --sort=ext"
-which exa >/dev/null 2>&1 && alias tree="exa --tree"
+which exa >/dev/null 2>&1 && alias ls="exa -lh --icons --time-style=long-iso --group-directories-first --sort=name --sort=ext"
+which exa >/dev/null 2>&1 && alias la="exa -lha --icons --time-style=long-iso --group-directories-first --sort=name --sort=ext"
+which exa >/dev/null 2>&1 && alias tree="exa --icons --tree"
 
 ## ssh connection to servers
 alias homelab="ssh natalia@192.168.0.10"
