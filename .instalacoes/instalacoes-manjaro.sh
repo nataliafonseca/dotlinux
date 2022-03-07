@@ -48,8 +48,8 @@ asdf plugin-add python
 
 # java
 asdf list-all java
-asdf install java adoptopenjdk-11.0.14+101
-asdf global java adoptopenjdk-11.0.14+101
+asdf install java openjdk-11.0.2
+asdf global java openjdk-11.0.2
 asdf install maven 3.8.4
 asdf global maven 3.8.4
 
@@ -124,3 +124,8 @@ yay -Syu --noconfirm exa
 # intellij
 yay -Syu --noconfirm intellij-idea-ultimate-edition
 yay -Syu --noconfirm intellij-idea-ultimate-edition-jre
+
+# android-studio
+yay -Syu --noconfirm android-studio
+yayi cpu-checker-bzr
+sudo usermod -a -G kvm $USER
