@@ -1,0 +1,10 @@
+[Nemo Action]
+
+Active=true
+Name=Open in Sublime Text
+Comment=Opens current folder on vscode
+Exec=subl %P
+Selection=none
+Extensions=any;
+Quote=double
+Dependencies=code;

@@ -74,9 +74,11 @@ alias cloudserver="ssh natalia@cloud.wwwsnow.org"
 
 ## docker images
 alias dprune="docker system prune --all --volumes"
-alias postgres="docker-compose -f postgres.yaml"
-alias mongo="docker-compose -f mongo.yaml"
-alias redis="docker-compose -f redis.yaml"
+alias postgres="docker-compose -f ~/.local/bin/postgres.yaml"
+alias mysql="docker-compose -f ~/.local/bin/mysql.yaml"
+alias sqlserver="docker-compose -f ~/.local/bin/sqlserver.yaml"
+alias mongo="docker-compose -f  ~/.local/bin/mongo.yaml"
+alias redis="docker-compose -f  ~/.local/bin/redis.yaml"
 
 # npm audit fix for yarn projects
 function yarn-audit-fix() {
