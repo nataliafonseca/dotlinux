@@ -95,3 +95,4 @@ function yarn-audit-fix() {
   yarn import
   rm package-lock.json
 }
+source /usr/share/nvm/init-nvm.sh
