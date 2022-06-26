@@ -2,21 +2,11 @@
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:/home/natalia/.local/bin
 
-## asdf
-source /opt/asdf-vm/asdf.sh
-
 ## poetry
 export PATH=$PATH:$HOME/.poetry/bin
 
-# java
-. ~/.asdf/plugins/java/set-java-home.zsh
-
-## react native
-export ANDROID_HOME=~/.android/Sdk
-export PATH=$PATH:$ANDROID_HOME/emulator
-export PATH=$PATH:$ANDROID_HOME/tools
-export PATH=$PATH:$ANDROID_HOME/tools/bin
-export PATH=$PATH:$ANDROID_HOME/platform-tools
+## nvm
+source /usr/share/nvm/init-nvm.sh
 
 # oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh"
@@ -40,7 +30,6 @@ plugins=(git
 
 source $ZSH/oh-my-zsh.sh
 
-
 # aliases and function
 ## shell functions
 alias refresh="exec /bin/zsh"
@@ -60,6 +49,7 @@ which apt >/dev/null 2>&1 && alias aptu="sudo apt update && sudo apt upgrade -y 
 which yay >/dev/null 2>&1 && alias yayi="yay -Syu --noconfirm"
 
 ## general
+alias zshconfig="subl ~/.zshrc"
 alias py="python"
 alias clone="gh repo clone"
 alias dc="docker-compose"
@@ -79,7 +69,7 @@ which exa >/dev/null 2>&1 && alias tree="exa --icons --tree"
 
 ## ssh connection to servers
 alias homelab="ssh natalia@192.168.0.10"
-alias cloudserver="ssh natalia@static.151.42.161.5.clients.your-server.de"
+alias cloudserver="ssh natalia@cloud.wwwsnow.org"
 
 ## docker images
 alias dprune="docker system prune --all --volumes"
@@ -95,4 +85,4 @@ function yarn-audit-fix() {
   yarn import
   rm package-lock.json
 }
-source /usr/share/nvm/init-nvm.sh
+
