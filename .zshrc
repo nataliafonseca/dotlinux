@@ -46,7 +46,8 @@ which dnf >/dev/null 2>&1 && alias dnfi="sudo dnf install -y"
 which dnf >/dev/null 2>&1 && alias dnfu="sudo dnf update"
 which apt >/dev/null 2>&1 && alias apti="sudo apt install -yf"
 which apt >/dev/null 2>&1 && alias aptu="sudo apt update && sudo apt upgrade -y && sudo apt autoremove -y"
-which yay >/dev/null 2>&1 && alias yayi="yay -Syu --noconfirm"
+which yay >/dev/null 2>&1 && alias yayi="yay -S"
+which yay >/dev/null 2>&1 && alias yayu="yay -Syu"
 
 ## general
 alias zshconfig="subl ~/.zshrc"
