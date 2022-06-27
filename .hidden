@@ -5,3 +5,5 @@ packages.microsoft.gpg
 gnome-terminal
 Android
 DataGripProjects
+bin
+snap

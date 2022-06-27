@@ -6,13 +6,15 @@ export PATH=$PATH:/home/natalia/.local/bin
 export PATH=$PATH:$HOME/.poetry/bin
 
 ## nvm
-source /usr/share/nvm/init-nvm.sh
+which /usr/share/nvm/init-nvm.sh >/dev/null 2>&1 && source /usr/share/nvm/init-nvm.sh
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # oh-my-zsh
 export ZSH="$HOME/.oh-my-zsh"
 
 ZSH_THEME="powerlevel10k/powerlevel10k"
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 zstyle ':omz:update' mode auto
@@ -22,7 +24,6 @@ plugins=(git
          gitfast
          sudo
          copypath
-         dotenv
          zsh-interactive-cd
          zsh-z
          zsh-autosuggestions
@@ -51,11 +52,11 @@ which yay >/dev/null 2>&1 && alias yayu="yay -Syu"
 
 ## general
 alias zshconfig="subl ~/.zshrc"
+alias python=python3
 alias py="python"
 alias clone="gh repo clone"
 alias dc="docker compose"
 alias minifycss="npx cleancss -o style.min.css style.css --with-rebase"
-alias mirage-start="degit nataliafonseca/miragejs-starter-kit miragejs"
 alias mkvenv="python -m venv ./venv"
 alias venv="source ./venv/bin/activate"
 alias poetryrm="rm -rf $(poetry env info -p)"
@@ -77,13 +78,3 @@ alias mysql="docker compose -f ~/.local/bin/mysql.yaml"
 alias sqlserver="docker compose -f ~/.local/bin/sqlserver.yaml"
 alias mongo="docker compose -f  ~/.local/bin/mongo.yaml"
 alias redis="docker compose -f  ~/.local/bin/redis.yaml"
-
-# npm audit fix for yarn projects
-function yarn-audit-fix() {
-  npm i --package-lock-only
-  npm audit fix
-  rm yarn.lock
-  yarn import
-  rm package-lock.json
-}
-
