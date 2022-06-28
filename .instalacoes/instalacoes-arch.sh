@@ -19,8 +19,6 @@ yay -S --noconfirm jdk11-openjdk
 yay -S --noconfirm sublime-text-4
 yay -S --noconfirm insync
 yay -S --noconfirm nvm
-yay -S --noconfirm docker
-yay -S --noconfirm docker-compose
 yay -S --noconfirm python-pip
 yay -S --noconfirm python-pipx
 yay -S --noconfirm visual-studio-code-bin
@@ -64,3 +62,29 @@ npm install -g json-server
 npm install -g sync-dotenv
 npm install -g degit
 npm install -g @nestjs/cli
+
+# docker
+yay -S --noconfirm docker
+yay -S --noconfirm docker-compose
+sudo systemctl start docker.service
+sudo systemctl enable docker.service
+sudo groupadd docker
+sudo usermod -a -G docker $USER
+
+# cups
+yay -S --noconfirm cups
+yay -S --noconfirm cups-pdf
+sudo systemctl start cups.service
+sudo systemctl enable cups.service
+
+# epson
+yay -S --noconfirm lsb-release
+yay -S --noconfirm epson-inkjet-printer-escpr
+yay -S --noconfirm epson-printer-utility
+yay -S --noconfirm imagescan-plugin-networkscan
+
+# bluetooth
+yay -S --noconfirm blueman
+yay -S --noconfirm bluez
+yay -S --noconfirm bluez-hid2hci
+sudo systemctl enable --now bluetooth.service
