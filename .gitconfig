@@ -21,3 +21,11 @@
 	amend = !git add --all && git commit --amend --no-edit
 	count = !git shortlog -s --grep
 
+[credential]
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager-core
+	credentialStore = secretservice
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[credential "https://devops.iteris.com.br"]
+	provider = generic

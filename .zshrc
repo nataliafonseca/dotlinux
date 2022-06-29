@@ -1,10 +1,10 @@
 # environment setup
 export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$PATH:/home/natalia/.local/bin
+export PATH="$PATH:/opt/mssql-tools/bin"
 
 ## poetry
 export PATH=$PATH:$HOME/.poetry/bin
-
 ## nvm
 which /usr/share/nvm/init-nvm.sh >/dev/null 2>&1 && source /usr/share/nvm/init-nvm.sh
 export NVM_DIR="$HOME/.nvm"
@@ -78,3 +78,8 @@ alias mysql="docker compose -f ~/.local/bin/mysql.yaml"
 alias sqlserver="docker compose -f ~/.local/bin/sqlserver.yaml"
 alias mongo="docker compose -f  ~/.local/bin/mongo.yaml"
 alias redis="docker compose -f  ~/.local/bin/redis.yaml"
+
+# docker exec
+function dsh() {
+  docker exec -it $1 sh
+}

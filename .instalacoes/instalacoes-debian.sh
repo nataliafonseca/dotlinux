@@ -8,6 +8,10 @@ while true; do
     kill -0 "$$" || exit
 done 2>/dev/null &
 
+# main repos
+sudo add-apt-repository main
+sudo add-apt-repository universe
+
 # Git
 sudo add-apt-repository ppa:git-core/ppa
 sudo apt update
@@ -15,7 +19,7 @@ sudo apt upgrade -y
 sudo apt install -y git
 
 # varied programs
-sudo apt install -y curl unrar xclip python3-pip imagemagick apt-transport-https p7zip-full p7zip-rar default-jdk qbittorrent maven pdftk pdfchain dconf-editor telegram-desktop kolourpaint flameshot krita img2pdf simplescreenrecorder build-essential pkg-config libvlccore-dev libvlc-dev gnome-tweaks chrome-gnome-shell timeshift peek libev-dev libx11-dev libxi-dev gpick inkscape gimp fzf chrome-gnome-shell
+sudo apt install -y curl unrar xclip python3-pip imagemagick apt-transport-https p7zip-full p7zip-rar default-jdk qbittorrent maven pdftk pdfchain dconf-editor telegram-desktop kolourpaint flameshot krita img2pdf simplescreenrecorder build-essential pkg-config libvlccore-dev libvlc-dev gnome-tweaks chrome-gnome-shell timeshift peek libev-dev libx11-dev libxi-dev gpick inkscape gimp fzf chrome-gnome-shell lsb lsb-release
 
 # node
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.1/install.sh | bash
@@ -69,15 +73,30 @@ echo \
   $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list >/dev/null
 sudo apt update
 sudo apt upgrade -y
-
-# poetry
-curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
-poetry config virtualenvs.in-project true
-
 sudo apt install docker-ce docker-ce-cli containerd.io
 sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
 sudo systemctl start docker
 sudo systemctl enable docker
-sudo usermod -aG docker $USER
 newgrp docker
+sudo usermod -aG docker $USER
+
+# poetry
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python -
+poetry config virtualenvs.in-project true
+
+# dotnet
+wget https://packages.microsoft.com/config/ubuntu/20.04/packages-microsoft-prod.deb -O packages-microsoft-prod.deb
+sudo dpkg -i packages-microsoft-prod.deb
+rm packages-microsoft-prod.deb
+sudo apt-get update; \
+  sudo apt-get install -y apt-transport-https && \
+  sudo apt-get update && \
+  sudo apt-get install -y dotnet-sdk-6.0
+sudo apt-get install -y nuget
+
+#sqlcmd
+curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
+curl https://packages.microsoft.com/config/ubuntu/20.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list
+sudo apt-get update 
+sudo apt-get install mssql-tools unixodbc-dev
